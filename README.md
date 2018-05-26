@@ -1,2 +1,0 @@
-# C-Training
-C++ Problem
