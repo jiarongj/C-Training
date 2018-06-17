@@ -30,3 +30,18 @@ public:
         return count;
     }
 };
+
+
+
+// another solution:
+// ------------------------------------
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        reverse(s.begin(),s.end());
+        istringstream iss(s);  //get string section from iss(origin) without empty space;
+        string word;
+        iss>>word;    //extract string section from iss to word;
+        return word.size();
+    }
+};
