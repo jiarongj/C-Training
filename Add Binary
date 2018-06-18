@@ -11,6 +11,41 @@
 // Output: "10101"
 
 
+
+class Solution {
+public:
+    std::string addBinary(std::string a, std::string b) {
+        if (a.length()<b.length()){swap(a,b);}  //a longer;
+        int len = b.length();
+        reverse(a.begin(),a.end());
+        reverse(b.begin(),b.end());
+        int flag = 0;
+        string s;
+        for(size_t i=0; i<len; ++i){  
+            if(a[i]!=b[i]){if (flag==0){s.push_back('1');flag=0;}
+                           else{s.push_back('0');flag=1;}}
+            else if(a[i]==b[i]){
+                if(b[i]=='0'){if(flag==1){s.push_back('1');}else{s.push_back('0');}flag=0;}
+            else if(b[i]=='1'){if(flag==1){s.push_back('1');}else{s.push_back('0');}flag=1;}
+            }
+        }
+        for(size_t j=len;j<a.length();++j){  
+                if (flag == 1 && a[j]=='0'){s.push_back('1');flag=0;}
+                else if(flag == 1 && a[j]=='1'){s.push_back('0');flag=1;}
+                else if(flag == 0 && a[j]=='0'){s.push_back('0');}
+                else{s.push_back('1');}
+            }
+         
+        
+        if(flag==1){s.push_back('1'); flag=0;}
+        reverse(s.begin(), s.end());
+        return s;
+    }
+    };
+
+
+
+
 class Solution {     //when testing a long case, this solution may not pass, failed at (194/294);
 public:
     string addBinary(string a, string b) {
