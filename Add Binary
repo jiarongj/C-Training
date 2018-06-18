@@ -1,0 +1,21 @@
+class Solution {     //when testing a long case, this solution may not pass, failed at (194/294);
+public:
+    string addBinary(string a, string b) {
+        long sum = 0;
+        reverse(a.begin(),a.end());
+        reverse(b.begin(),b.end());
+        for(size_t i=0; i<a.length();++i){
+            sum += (a[i]-'0')*pow(2,i);
+        }
+        for(size_t j=0; j<b.length();++j){
+            sum += (b[j]-'0')*pow(2,j);
+        }
+        string output="";
+        if (sum == 0){return "0";}
+        while(!sum==0){
+           output.insert(output.begin(), sum%2+'0');
+            sum = sum/2;           
+        }
+        return output;
+    }
+};
