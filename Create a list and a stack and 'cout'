@@ -1,0 +1,23 @@
+#include <iostream>
+#include <list>
+#include <stack>
+using namespace std;
+int main(void){
+    // Your code here!
+    std::list<int> mylist;
+    
+    for (int i = 1; i != 11; i++)
+        mylist.push_front(i),  
+        mylist.push_back(i);         //can use push_back for list or vector
+    
+    for (std::list<int>::iterator it = mylist.begin(); it != mylist.end(); it++)
+        std::cout << *it << ' ';
+        
+    std::stack<int> mystack;
+    
+    mystack.push(20);
+    mystack.push(12);
+    mystack.top() -= 4;     //cannot use push_back() or push_front() for stack, use push() or pop() instead
+    
+    std::cout << "The current mystack.top() is: " << mystack.top() << '\n';
+}
